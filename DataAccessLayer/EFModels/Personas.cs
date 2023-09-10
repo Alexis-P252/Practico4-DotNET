@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Shared;
 namespace DataAccessLayer.EFModels
 {
     public class Personas
@@ -23,6 +23,24 @@ namespace DataAccessLayer.EFModels
         [MaxLength(128), MinLength(3), Required]
         public string Apellidos { get; set; } = "";
 
+        [MaxLength(128), MinLength(3), Required]
+        public string Direccion { get; set; } = "";
+
+        public DateTime Fechanacimiento{ get; set; } 
         public int Telefono { get; set; }
+
+
+        public Persona getEntity()
+        {
+            return new Persona
+            {
+                Documento = this.Documento,
+                Nombre = this.Nombres,
+                Apellidos = this.Apellidos,
+                Direccion = this.Direccion,
+                FechaNac = this.Fechanacimiento,
+                Telefono = this.Telefono
+            };    
+        }
     }
 }

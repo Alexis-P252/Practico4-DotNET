@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.IDALs;
+﻿using DataAccessLayer.EFModels;
+using DataAccessLayer.IDALs;
 using Microsoft.Data.SqlClient;
 using Shared;
 using System;
@@ -20,29 +21,61 @@ namespace DataAccessLayer.DALs
 
         public void Delete(string documento)
         {
-            throw new NotImplementedException();
+            var personaToDelete = _dbContext.Personas.FirstOrDefault(p => p.Documento == documento);
+            if (personaToDelete != null)
+            {
+                _dbContext.Personas.Remove(personaToDelete);
+                _dbContext.SaveChanges();
+            }
         }
 
         public List<Persona> Get()
         {
             return _dbContext.Personas
-                             .Select(p => new Persona { Documento = p.Documento, Nombre = p.Nombres })
+                             .Select(p => p.getEntity())
                              .ToList();
         }
 
         public Persona Get(string documento)
         {
-            throw new NotImplementedException();
+            return _dbContext.Personas.FirstOrDefault(p => p.Documento == documento)?.getEntity();
         }
 
         public void Insert(Persona persona)
         {
-            throw new NotImplementedException();
+            var personaToSave= new Personas
+            {
+                
+                Documento = persona.Documento,
+                Nombres = persona.Nombre,
+                Apellidos = persona.Apellidos,
+                Direccion = persona.Direccion,
+                Fechanacimiento = persona.FechaNac,
+                Telefono = persona.Telefono
+            };
+
+            _dbContext.Personas.Add(personaToSave);
+            _dbContext.SaveChanges();
         }
 
         public void Update(Persona persona)
         {
-            throw new NotImplementedException();
+            var personaToUpdate = _dbContext.Personas.FirstOrDefault(p => p.Documento == persona.Documento);
+            if (personaToUpdate != null)
+            {
+                personaToUpdate.Nombres = persona.Nombre;
+                personaToUpdate.Apellidos = persona.Apellidos;
+                personaToUpdate.Direccion = persona.Direccion;
+                personaToUpdate.Fechanacimiento = persona.FechaNac;
+                personaToUpdate.Telefono = persona.Telefono;
+
+                _dbContext.SaveChanges();
+            }
         }
     }
 }
+
+
+
+
+

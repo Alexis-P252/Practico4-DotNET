@@ -27,6 +27,37 @@ namespace PracticoClase1
             Console.WriteLine("Ingrese el documento de la persona: ");
             persona.Documento = Console.ReadLine();
 
+            Console.WriteLine("Ingrese el apellido de la persona: ");
+            persona.Apellidos = Console.ReadLine();
+
+            Console.WriteLine("Ingrese la direccion de la persona: ");
+            persona.Direccion = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el telefono de la persona: ");
+            string inputTelefono = Console.ReadLine();
+
+            if (int.TryParse(inputTelefono, out int telefono))
+            {
+                persona.Telefono = telefono;
+            }
+            else
+            {
+                Console.WriteLine("El valor ingresado no es un número válido.");
+            }
+
+            Console.WriteLine("Ingrese la fecha de nacimiento de la persona (formato: dd/MM/yyyy): ");
+            string inputFechaNacimiento = Console.ReadLine();
+
+            if (DateTime.TryParseExact(inputFechaNacimiento, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime fechaNacimiento))
+            {
+                // La conversión fue exitosa, 'fechaNacimiento' contiene la fecha.
+                persona.FechaNac = fechaNacimiento;
+            }
+            else
+            {
+                Console.WriteLine("El formato de fecha ingresado no es válido.");
+            }
+
             _personasBL.Insert(persona);
 
             _personasBL.Get(persona.Documento).Print();
