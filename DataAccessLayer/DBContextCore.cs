@@ -34,5 +34,6 @@ namespace DataAccessLayer
         }
 
         public DbSet<Personas> Personas { get; set; }
+        public DbSet<Vehiculos> Vehiculos { get; set; } 
     }
 }

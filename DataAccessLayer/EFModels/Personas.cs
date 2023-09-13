@@ -29,6 +29,9 @@ namespace DataAccessLayer.EFModels
         public DateTime Fechanacimiento{ get; set; } 
         public int Telefono { get; set; }
 
+        public ICollection<Vehiculos> Vehiculos { get; set; } = new List<Vehiculos>();
+
+
 
         public Persona getEntity()
         {
