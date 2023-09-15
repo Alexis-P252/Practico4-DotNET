@@ -42,5 +42,10 @@ namespace BusinessLayer.BLs
         {
             _vehiculos.Delete(matricula);
         }
+
+        List<Vehiculo> IBL_Vehiculos.GetVehiculosByDocumento(string documento)
+        {
+            return _vehiculos.GetVehiculosByDocumento(documento);
+        }
     }
 }

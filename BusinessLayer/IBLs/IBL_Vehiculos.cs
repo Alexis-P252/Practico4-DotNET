@@ -18,5 +18,7 @@ namespace BusinessLayer.IBLs
         void Update(Vehiculo vehiculo);
 
         void Delete(string matricula);
+
+        List<Vehiculo> GetVehiculosByDocumento(string documento);
     }
 }

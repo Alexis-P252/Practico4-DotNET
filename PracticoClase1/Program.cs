@@ -12,6 +12,10 @@ Console.WriteLine("Primera Aplicación con .NET");
 
 IDAL_Personas _personas = new DAL_Personas_EF(new DataAccessLayer.DBContextCore());
 IBL_Personas _personasBL = new BL_Personas(_personas);
+
+IDAL_Vehiculos _vehiculos = new DAL_Vehiculos_EF(new DataAccessLayer.DBContextCore());
+IBL_Vehiculos _vehiculosBL = new BL_Vehiculos(_vehiculos);
+
 Commands commands = new Commands(_personasBL);
 UpdateDatabase();
 

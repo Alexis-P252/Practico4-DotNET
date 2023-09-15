@@ -18,5 +18,9 @@ namespace DataAccessLayer.IDALs
         void Update(Persona persona);
 
         void Delete(string documento);
+
+        void AsociarPersonaAVehiculo(string documento, string matricula);
+
+        void DesasociarPersonaDeVehiculo(string documento, string matricula);
     }
 }

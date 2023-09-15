@@ -68,6 +68,14 @@ namespace DataAccessLayer.DALs
                 _dbContext.SaveChanges();
             }
         }
+
+        public List<Vehiculo> GetVehiculosByDocumento(string documento)
+        {
+            return _dbContext.Vehiculos
+                             .Where(v => v.Persona.Documento == documento)
+                             .Select(v => v.getEntity())
+                             .ToList();
+        }
     }
 }
 

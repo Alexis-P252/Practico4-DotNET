@@ -42,5 +42,15 @@ namespace BusinessLayer.BLs
         {
             _personas.Delete(documento);
         }
+
+        void IBL_Personas.AsociarPersonaAVehiculo(string documento, string matricula)
+        {
+            _personas.AsociarPersonaAVehiculo(documento, matricula);
+        }
+
+        void IBL_Personas.DesasociarPersonaDeVehiculo(string documento, string matricula)
+        {
+            _personas.DesasociarPersonaDeVehiculo(documento, matricula);
+        }
     }
 }

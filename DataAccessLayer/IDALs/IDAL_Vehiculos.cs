@@ -18,5 +18,7 @@ namespace DataAccessLayer.IDALs
         void Update(Vehiculo vehiculo);
 
         void Delete(string matricula);
+
+        List<Vehiculo> GetVehiculosByDocumento(string documento);
     }
 }
