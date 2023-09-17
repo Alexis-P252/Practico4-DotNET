@@ -35,5 +35,15 @@ namespace DataAccessLayer.DALs
         {
             throw new NotImplementedException();
         }
+
+        void IDAL_Personas.AsociarPersonaAVehiculo(string documento, string matricula)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDAL_Personas.DesasociarPersonaDeVehiculo(string documento, string matricula)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

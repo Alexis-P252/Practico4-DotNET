@@ -72,7 +72,34 @@ namespace DataAccessLayer.DALs
                 _dbContext.SaveChanges();
             }
         }
+
+        public void AsociarPersonaAVehiculo(string documento, string matricula)
+        {
+            var persona = _dbContext.Personas.FirstOrDefault(p => p.Documento == documento);
+            var vehiculo = _dbContext.Vehiculos.FirstOrDefault(v => v.Matricula == matricula);
+
+            if (persona != null && vehiculo != null)
+            {
+                vehiculo.Persona = persona;
+                _dbContext.SaveChanges();
+            }
+        }
+
+        public void DesasociarPersonaDeVehiculo(string documento, string matricula)
+        {
+            var vehiculo = _dbContext.Vehiculos.FirstOrDefault(v => v.Matricula == matricula);
+
+            if (vehiculo != null && vehiculo.Persona != null && vehiculo.Persona.Documento == documento)
+            {
+                vehiculo.Persona = null;
+                _dbContext.SaveChanges();
+            }
+        }
+
+
     }
+
+
 }
 
 
