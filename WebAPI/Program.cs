@@ -25,9 +25,11 @@ builder.Services.AddSwaggerGen();
 
 //DALs
 builder.Services.AddTransient<IDAL_Personas, DAL_Personas_EF>();
+builder.Services.AddTransient<IDAL_Vehiculos, DAL_Vehiculos_EF>();
 
 // BLs
 builder.Services.AddTransient<IBL_Personas, BL_Personas>();
+builder.Services.AddTransient<IBL_Vehiculos, BL_Vehiculos>();
 
 #endregion
 
