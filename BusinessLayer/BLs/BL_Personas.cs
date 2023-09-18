@@ -28,6 +28,11 @@ namespace BusinessLayer.BLs
             return _personas.Get(documento);
         }
 
+        public Persona Get(int id)
+        {
+            return _personas.Get(id);
+        }
+
         public void Insert(Persona persona)
         {
             _personas.Insert(persona);

@@ -6,25 +6,7 @@ namespace Shared
     {
         public string Nombre { get; set; } = "-- Sin Nombre --";
 
-        private string documento = "";
-        public string Documento
-        {
-            get
-            {
-                return documento;
-            }
-            set
-            {
-                if (value.Length >= 7)
-                {
-                    documento = value;
-                }
-                else
-                {
-                    throw new Exception("El formato del documento no es correcto.");
-                }
-            }
-        }
+        public string Documento { get; set;}
 
         public string Apellidos { get; set; }
 

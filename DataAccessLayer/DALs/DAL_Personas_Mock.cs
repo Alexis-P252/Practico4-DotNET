@@ -46,5 +46,10 @@ namespace DataAccessLayer.DALs
         {
             throw new NotImplementedException();
         }
+
+        Persona IDAL_Personas.Get(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

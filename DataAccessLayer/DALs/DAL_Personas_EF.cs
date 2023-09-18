@@ -41,6 +41,11 @@ namespace DataAccessLayer.DALs
             return _dbContext.Personas.FirstOrDefault(p => p.Documento == documento)?.getEntity();
         }
 
+        public Persona Get(int id)
+        {
+            return _dbContext.Personas.FirstOrDefault(p => p.Id == id)?.getEntity();
+        }
+
         public void Insert(Persona persona)
         {
             var personaToSave= new Personas

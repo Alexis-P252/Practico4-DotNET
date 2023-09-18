@@ -13,6 +13,8 @@ namespace BusinessLayer.IBLs
 
         Persona Get(string documento);
 
+        Persona Get(int id);
+
         void Insert(Persona persona);
 
         void Update(Persona persona);

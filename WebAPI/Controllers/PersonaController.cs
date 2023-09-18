@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BusinessLayer.IBLs;
 using Shared;
+using DataAccessLayer.EFModels;
 
 namespace WebAPI.Controllers
 {
@@ -15,7 +16,7 @@ namespace WebAPI.Controllers
             _bl = bl; 
         }
 
-        // GET: api/<PersonasController>
+        // GET: api/<PersonaController>
         [ProducesResponseType(typeof(List<Persona>), 200)]
         [HttpGet]
         public IActionResult Get()
@@ -23,15 +24,15 @@ namespace WebAPI.Controllers
             return Ok(_bl.Get());
         }
 
-        // GET api/<PersonasController>/12345678
+        // GET api/<PersonaController>/12345678
         [ProducesResponseType(typeof(Persona), 200)]
-        [HttpGet("{id}")]
+        [HttpGet("{documento}")]
         public IActionResult Get(string documento)
         {
             return Ok(_bl.Get(documento));
         }
 
-        // POST api/<PersonasController>
+        // POST api/<PersonaController>
         [ProducesResponseType(typeof(Persona), 200)]
         [HttpPost]
         public IActionResult Post([FromBody] Persona x)
@@ -40,20 +41,29 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
+        // PUT api/<PersonaController>/12345678
+        [HttpPut("{documento}")]
+        public IActionResult Put(string documento , [FromBody] Persona persona){
+
+            persona.Documento = documento;
+            _bl.Update(persona);
+            return Ok(persona);
+
         }
 
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE api/<ValuesController>/12345678
+        [HttpDelete("{documento}")]
+        public IActionResult Delete(string documento)
         {
+            Persona p = _bl.Get(documento);
+            if (p == null)
+            {
+                return NotFound();
+            }
+
+            _bl.Delete(p.Documento);
+            return Ok();
         }
-
-
-
 
 
     }
