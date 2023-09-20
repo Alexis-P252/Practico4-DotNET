@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.EFModels;
 using DataAccessLayer.IDALs;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Shared;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,13 @@ namespace DataAccessLayer.DALs
             return _dbContext.Personas
                              .Select(p => p.getEntity())
                              .ToList();
+        }
+
+        public List<Personas> GetConVehiculos()
+        {
+            return _dbContext.Personas.Include(p => p.Vehiculos)
+                .ToList();
+
         }
 
         public Persona Get(string documento)

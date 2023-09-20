@@ -43,13 +43,17 @@ namespace DataAccessLayer.DALs
 
         public void Insert(Vehiculo vehiculo)
         {
+
+            Personas p = _dbContext.Personas.FirstOrDefault(p => p.Id == vehiculo.PersonaID);
+
             var vehiculoToSave = new Vehiculos
             {
                 Matricula = vehiculo.Matricula,
                 Marca = vehiculo.Marca,
-                Modelo  = vehiculo.Modelo,
-
-     
+                Modelo = vehiculo.Modelo,
+                PersonaId = vehiculo.PersonaID,
+                Persona = p,
+  
             };
 
             _dbContext.Vehiculos.Add(vehiculoToSave);

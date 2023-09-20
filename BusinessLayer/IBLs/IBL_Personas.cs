@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using DataAccessLayer.EFModels;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace BusinessLayer.IBLs
     public interface IBL_Personas
     {
         List<Persona> Get();
+
+        List<Personas> GetConVehiculos(); 
 
         Persona Get(string documento);
 

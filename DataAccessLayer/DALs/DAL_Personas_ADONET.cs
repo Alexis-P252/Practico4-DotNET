@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.IDALs;
+﻿using DataAccessLayer.EFModels;
+using DataAccessLayer.IDALs;
 using Microsoft.Data.SqlClient;
 using Shared;
 using System;
@@ -47,6 +48,11 @@ namespace DataAccessLayer.DALs
         }
 
         Persona IDAL_Personas.Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Personas> IDAL_Personas.GetConVehiculos()
         {
             throw new NotImplementedException();
         }

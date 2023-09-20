@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Shared;
 namespace DataAccessLayer.EFModels
@@ -24,6 +25,8 @@ namespace DataAccessLayer.EFModels
         public string Matricula{ get; set; } = "";
 
         public long PersonaId { get; set; }
+        [ForeignKey("PersonaId")]
+        [JsonIgnore]
         public Personas Persona { get; set; }
 
 
@@ -35,8 +38,9 @@ namespace DataAccessLayer.EFModels
                 Modelo = this.Modelo,
                 Matricula = this.Matricula,
                 PersonaID = this.PersonaId,
-                Persona = this.Persona.getEntity()
-            };
+               
+         
+            }; 
         }
     }
 }

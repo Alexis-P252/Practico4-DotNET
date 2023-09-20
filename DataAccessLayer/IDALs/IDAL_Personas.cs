@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using DataAccessLayer.EFModels;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace DataAccessLayer.IDALs
         Persona Get(string documento);
 
         Persona Get(int id);
+
+        public List<Personas> GetConVehiculos();
 
         void Insert(Persona persona);
 

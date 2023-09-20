@@ -10,8 +10,7 @@ namespace Shared
 
         public long PersonaID { get; set; }
         
-        public Persona Persona { get; set; }
-
+        
 
         public void Print()
         {
@@ -19,12 +18,12 @@ namespace Shared
             Console.WriteLine("Marca: " + Marca);
             Console.WriteLine("Modelo: " + Modelo);
             Console.WriteLine("Matricula: " + Matricula);
-            Console.WriteLine("Persona: " + Persona.Nombre + "- C.I. "  + Persona.Documento);
+          
         }
 
         public void PrintTable()
         {
-            Console.WriteLine("| " + Marca + " | " + Modelo+ " |" + Matricula+ " |" + Persona.Nombre + "- C.I. " + Persona.Documento + " |");
+            Console.WriteLine("| " + Marca + " | " + Modelo+ " |" + Matricula );
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.IBLs;
+using DataAccessLayer.EFModels;
 using DataAccessLayer.IDALs;
 using Shared;
 using System;
@@ -21,6 +22,11 @@ namespace BusinessLayer.BLs
         public List<Persona> Get()
         {
             return _personas.Get();
+        }
+
+        List<Personas> IBL_Personas.GetConVehiculos()
+        {
+            return _personas.GetConVehiculos();
         }
 
         public Persona Get(string documento)
@@ -57,5 +63,7 @@ namespace BusinessLayer.BLs
         {
             _personas.DesasociarPersonaDeVehiculo(documento, matricula);
         }
+
+        
     }
 }

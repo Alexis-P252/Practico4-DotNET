@@ -32,6 +32,16 @@ namespace WebAPI.Controllers
             return Ok(_bl.Get(documento));
         }
 
+        // GET: api/<PersonaController>
+        [ProducesResponseType(typeof(List<Persona>), 200)]
+        [HttpGet("ConVehiculos")]
+        public IActionResult GetConVehiculos()
+        {
+            return Ok(_bl.GetConVehiculos());
+        }
+
+
+
         // POST api/<PersonaController>
         [ProducesResponseType(typeof(Persona), 200)]
         [HttpPost]
